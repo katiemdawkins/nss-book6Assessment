@@ -1,0 +1,74 @@
+{
+    "authors": [
+        {
+            "id": 1,
+            "authorName": "Toni Morrison",
+            "emailAddress": "toni@toni.com"
+        },
+        {
+            "id": 2,
+            "authorName": "Glennon Doyle",
+            "emailAddress": "glennon@doyle.com"
+        },
+        {
+            "id": 3,
+            "authorName": "Roxane Gay",
+            "emailAddress": "roxane@gay.com"
+        },
+        {
+            "id": 4,
+            "authorName": "Amy Tan",
+            "emailAddress": "amy@amy.com"
+        }
+    ],
+    "recipients": [
+        {
+            "id": 1,
+            "recipientName": "Toni Morrison",
+            "emailAddress": "toni@toni.com"
+        },
+        {
+            "id": 2,
+            "recipientName": "Glennon Doyle",
+            "emailAddress": "glennon@doyle.com"
+        },
+        {
+            "id": 3,
+            "recipientName": "Roxane Gay",
+            "emailAddress": "roxane@gay.com"
+        },
+        {
+            "id": 4,
+            "recipientName": "Amy Tan",
+            "emailAddress": "amy@amy.com"
+        }
+    ],
+    "topics": [
+        {
+            "id": 1,
+            "topicName": "Friendship"
+        },
+        {
+            "id": 2,
+            "topicName": "Life Update"
+        },
+        {
+            "id": 3,
+            "topicName": "Funny meme"
+        },
+        {
+            "id": 4,
+            "topicName": "Business"
+        }
+    ],
+    "letters": [
+        {
+            "id": 1,
+            "authorId": 2,
+            "recipientId": 3,
+            "topicId": 2,
+            "letterContent": "My friend, it finally happened. I am sick with Covid-19, and I feel awful. Send me good vibes.",
+            "dateSent": "2022/02/07"
+        }
+    ]
+}
