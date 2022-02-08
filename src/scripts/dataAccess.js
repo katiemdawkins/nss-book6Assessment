@@ -1,7 +1,69 @@
 // declare a variable applicationState. it's value is an object.
 const applicationState = {
     //inside the object is an empty array -letters- for future user input 
-    letters: []
+    letters: [],
+    authors:[
+        {
+            id: 1,
+            authorName: "Toni Morrison",
+            emailAddress: "toni@toni.com"
+        },
+        {
+            id: 2,
+            authorName: "Glennon Doyle",
+            emailAddress: "glennon@doyle.com"
+        },
+        {
+            id: 3,
+            authorName: "Roxane Gay",
+            emailAddress: "roxane@gay.com"
+        },
+        {
+            id: 4,
+            authorName: "Amy Tan",
+            emailAddress: "amy@amy.com"
+        }
+    ],
+    recipients:[
+            {
+                id: 1,
+                recipientName: "Toni Morrison",
+                emailAddress: "toni@toni.com"
+            },
+            {
+                id: 2,
+                recipientName: "Glennon Doyle",
+                emailAddress: "glennon@doyle.com"
+            },
+            {
+                id: 3,
+                recipientName: "Roxane Gay",
+                emailAddress: "roxane@gay.com"
+            },
+            {
+                id: 4,
+                recipientName: "Amy Tan",
+                emailAddress: "amy@amy.com"
+            }
+    ],
+    topics:[
+        {
+            id: 1,
+            topicName: "Friendship"
+        },
+        {
+            id: 2,
+            topicName: "Life Update"
+        },
+        {
+            id: 3,
+            topicName: "Funny meme"
+        },
+        {
+            id: 4,
+            topicName: "Business"
+        }
+    ]
 }
 
 //declare a variable API to store url for json server
@@ -28,6 +90,19 @@ export const fetchRequests = () => {
 export const getLetters = () =>{
     return applicationState.letters.map(letter => ({...letter}))
 }
+
+export const getAuthors = () => {
+    return applicationState.authors.map(author => ({...author}))
+}
+
+export const getRecipients = () => {
+    return applicationState.recipients.map(recipient => ({...recipient}))
+}
+
+export const getTopics = () => {
+    return applicationState.topics.map(topic => ({...topic}))
+}
+
 //declare mainContainer variable assign it's value to the location where we will push the content to the DOM #container
 const mainContainer = document.querySelector("#container")
 

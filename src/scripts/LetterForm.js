@@ -1,5 +1,7 @@
 // import sendLetter function from dataAccess.js
 import { sendLetter } from "./dataAccess.js";
+import { Authors } from "./Authors.js";
+import { Recipient } from "./Recipients.js";
 
 //declare the mainConttainer variable
 const mainContainer = document.querySelector("#container")
@@ -21,9 +23,8 @@ const mainContainer = document.querySelector("#container")
 export const LetterForm = () => {
     let html = `
     <div class="field">
-        <select class="authors>
-            <option value="">Choose your author...</option>
-        </select>
+        <label for="authors">Authors</lable>
+        ${Authors()}
     </div>
     <div class="field">
         <label class="label" for="userLetter">Your Letter</lable>
@@ -31,8 +32,12 @@ export const LetterForm = () => {
     </div>
     <div class="field" id="radioButtons">
     </div>
-    <div class="field"></div>
+    <div class="field">
+        <label for="recipient">Recipient</label>
+        ${Recipient()}
+    </div>
     <button class="button" id="submitLetter">Submit Letter</button>
     `
     return html
 }
+

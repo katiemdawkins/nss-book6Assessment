@@ -1,26 +1,5 @@
 {
-    "authors": [
-        {
-            "id": 1,
-            "authorName": "Toni Morrison",
-            "emailAddress": "toni@toni.com"
-        },
-        {
-            "id": 2,
-            "authorName": "Glennon Doyle",
-            "emailAddress": "glennon@doyle.com"
-        },
-        {
-            "id": 3,
-            "authorName": "Roxane Gay",
-            "emailAddress": "roxane@gay.com"
-        },
-        {
-            "id": 4,
-            "authorName": "Amy Tan",
-            "emailAddress": "amy@amy.com"
-        }
-    ],
+    "authors": [],
     "recipients": [
         {
             "id": 1,
