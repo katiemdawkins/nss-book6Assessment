@@ -1,0 +1,42 @@
+
+.field1, .form, .label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+}
+
+h1 {
+    text-align: center;
+    font-weight: 200;
+}
+
+label, #radioButtons {
+    font-size: medium;
+}
+
+.letter {
+    background-color: lightskyblue;
+}
+
+#topicButton {
+    background-color: rgb(255, 255, 157);
+    border-radius: 8px;
+    color:tomato;
+    border: none;
+
+}
+
+p {
+    padding: 1em;
+}
+
+.button {
+    background-color: rgb(255, 255, 157);
+    border-radius: 8px;
+    color:tomato;
+    border: none;
+}
+
+#radioButtons {
+    
+}

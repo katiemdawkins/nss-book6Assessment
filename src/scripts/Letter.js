@@ -1,5 +1,19 @@
-// import getLetters from dataAccess
+// import { setLetter } from "./dataAccess.js"
 
 
-//function that creates the structure for the sent letters to be displayed after
-//the user hits submit letter 
+// export const LetterText = () => {
+//     return `<textarea id="letterText" name="letterText" cols="40" rows="5"></textarea>`
+// }
+
+
+
+
+// document.addEventListener(
+//     "change",
+//     (event)=>{
+//         if(event.target.id === "letterText"){
+//             setLetter(parseInt(event.target.value))
+//         }
+//     }
+
+// )

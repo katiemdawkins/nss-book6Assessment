@@ -2,82 +2,24 @@
 const applicationState = {
     //inside the object is an empty array -letters- for future user input 
     letters: [],
-    authors:[
-        {
-            id: 1,
-            authorName: "Toni Morrison",
-            emailAddress: "toni@toni.com"
-        },
-        {
-            id: 2,
-            authorName: "Glennon Doyle",
-            emailAddress: "glennon@doyle.com"
-        },
-        {
-            id: 3,
-            authorName: "Roxane Gay",
-            emailAddress: "roxane@gay.com"
-        },
-        {
-            id: 4,
-            authorName: "Amy Tan",
-            emailAddress: "amy@amy.com"
-        }
-    ],
-    recipients:[
-            {
-                id: 1,
-                recipientName: "Toni Morrison",
-                emailAddress: "toni@toni.com"
-            },
-            {
-                id: 2,
-                recipientName: "Glennon Doyle",
-                emailAddress: "glennon@doyle.com"
-            },
-            {
-                id: 3,
-                recipientName: "Roxane Gay",
-                emailAddress: "roxane@gay.com"
-            },
-            {
-                id: 4,
-                recipientName: "Amy Tan",
-                emailAddress: "amy@amy.com"
-            }
-    ],
-    topics:[
-        {
-            id: 1,
-            topicName: "Friendship"
-        },
-        {
-            id: 2,
-            topicName: "Life Update"
-        },
-        {
-            id: 3,
-            topicName: "Funny meme"
-        },
-        {
-            id: 4,
-            topicName: "Business"
-        }
-    ]
+    authors:[],
+    recipients:[],
+    topics:[],
+    letterBuilder: {}
 }
 
 //declare a variable API to store url for json server
 const API = "http://localhost:8088"
 
 //create a function that fetches external, existing data
-export const fetchRequests = () => {
+export const fetchLetters = () => {
     //return and fetch API/letters
-    return fetch (`${API}/letters`)
+    return fetch (`${API}/letters?_expand=topic`)
     // use .then to get response from json
     .then(response => response.json())
     //use .then again to actually get the data
     .then(
-        // store thhe data in a place where we can see it 
+        // store the data in a place where we can see it 
         (userLetters) => {
             //send the data to the applicationState variable holding the letters array
             applicationState.letters = userLetters
@@ -85,6 +27,37 @@ export const fetchRequests = () => {
     )  
 }
 
+export const fetchAuthors = () =>{
+    return fetch (`${API}/authors`)
+    .then(response => response.json())
+    .then(
+        (userAuthors) => {
+            applicationState.authors = userAuthors
+        }
+    ) 
+    
+}
+export const fetchRecipients = () =>{
+    return fetch (`${API}/recipients`)
+    .then(response => response.json())
+    .then(
+        (userRecipients) => {
+            applicationState.recipients = userRecipients
+        }
+    ) 
+    
+}
+
+export const fetchTopics = () =>{
+    return fetch (`${API}/topics`)
+    .then(response => response.json())
+    .then(
+        (userTopics) => {
+            applicationState.topics = userTopics
+        }
+    ) 
+    
+}
 //create a function -getLetters- to export 
 //that will make a copy of the letters state using .map method 
 export const getLetters = () =>{
@@ -101,7 +74,29 @@ export const getRecipients = () => {
 
 export const getTopics = () => {
     return applicationState.topics.map(topic => ({...topic}))
+
 }
+
+export const getLetterBuilder = () => {
+    return applicationState.letterBuilder
+}
+
+export const setAuthor = (id) => {
+    applicationState.letterBuilder.authorId = id
+}
+
+export const setTopic = (id) => {
+    applicationState.letterBuilder.topicId = id
+}
+
+export const setRecipient = (id) => {
+    applicationState.letterBuilder.recipientId = id 
+}
+
+export const setLetter = (string) => {
+   applicationState.letterBuilder.letterContent = string
+}
+
 
 //declare mainContainer variable assign it's value to the location where we will push the content to the DOM #container
 const mainContainer = document.querySelector("#container")
@@ -119,11 +114,20 @@ export const sendLetter = (userSentLetter) =>{
         body: JSON.stringify(userSentLetter)
     }
     // return the API fetch 
-    return fetch (`${API}/letters`, fetchOptions)
+    return fetch(`${API}/letters`, fetchOptions)
     .then(response => response.json())
     .then (() =>{
         //make a custom event that lets the dom know the state has changed 
         mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
         //create the event listener on main.js for this 
     })
+}
+
+export const deleteLetter = (id) => {
+    return fetch(`${API}/letters/${id}`, { method: "DELETE" })
+        .then(
+            () => {
+                mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+            }
+        )
 }
